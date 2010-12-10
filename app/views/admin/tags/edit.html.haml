@@ -1,0 +1,14 @@
+- include_stylesheet 'admin/tags' 
+
+- render_region :main do |main|
+  - main.edit_header do
+    %h1
+      Edit Tag
+    
+  - main.edit_form do
+    - form_for :tag, :url => admin_tag_path(@tag), :html => { :method => "put", :multipart => true } do |form|
+      = render :partial => 'form', :object => form
+
+    
+    
+    

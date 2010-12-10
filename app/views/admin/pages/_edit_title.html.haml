@@ -1,0 +1,34 @@
+= javascript_include_tag "admin/controls"
+- content_for :page_css do
+  :sass 
+    p.title
+      :width 70%
+    p.keywords
+      :width 28%
+      :float right
+      :margin 0 1% 0 0
+    #content 
+      form
+        .auto_complete
+          ul
+            :color #000 !important
+            li
+              :color #000 !important
+        .keywords 
+          .textbox
+            :font-family Georgia, Palatino, "Times New Roman", Times, serif
+            :font-size 200%
+            :width 100%
+            :color #333
+            :margin-top 4px
+    #attributes
+      :clear both
+            
+- fields_for :page, @page do |fields|
+  %p.keywords
+    %label{:for=>"page_keywords"}
+      Tags
+    = text_field_with_auto_complete :page, :keywords, { :size => 50, :class => 'textbox' }, { :url => '/admin/tags.js', :method => :get, :param_name => 'search' }
+  %p.title
+    %label{:for=>"page_title"}= t('page_title')
+    = fields.text_field :title, :class => 'textbox', :maxlength => 255

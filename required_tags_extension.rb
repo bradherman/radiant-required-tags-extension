@@ -14,6 +14,11 @@ class RequiredTagsExtension < Radiant::Extension
     # tab 'Content' do
     #   add_item "Required Tags", "/admin/required_tags", :after => "Pages"
     # end
-    
+    unless defined? admin.tag
+      #Radiant::AdminUI.send :include, RequiredTagsAdminUI
+      Radiant::AdminUI.send :include, TaggableAdminUI
+      admin.tag = Radiant::AdminUI.load_default_tag_regions
+    end
+    admin.tag.edit.add :form, "add_required_field", :after => "edit_name"
   end
 end
