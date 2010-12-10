@@ -1,3 +1,3 @@
 = Required Tags
 
-Description goes here
+This extension adds functionality to the Taggable extension I've modified from Spanner.  It adds a "required" field to the tag model.  When a page is created, it cannot be saved without selecting at least one "required tag".
