@@ -6,18 +6,14 @@ class RequiredTagsExtension < Radiant::Extension
   description "Describe your extension here"
   url "http://yourwebsite.com/required_tags"
   
-  # extension_config do |config|
-  #   config.gem 'some-awesome-gem
-  #   config.after_initialize do
-  #     run_something
-  #   end
-  # end
-
-  # See your config/routes.rb file in this extension to define custom routes
+  extension_config do |config|
+    config.extension 'taggable'
+  end
   
   def activate
     # tab 'Content' do
     #   add_item "Required Tags", "/admin/required_tags", :after => "Pages"
     # end
+    
   end
 end
