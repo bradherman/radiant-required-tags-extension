@@ -26,9 +26,9 @@ module RequiredTagsAdminUI
               show.main.concat %w{show_header show_pages}
             end
             tag.index = Radiant::AdminUI::RegionSet.new do |index|
-              index.thead.concat %w{title_header description_header modify_header}
+              index.thead.concat %w{title_header description_header usage_header modify_header}
               # add back in -- usage_header
-              index.tbody.concat %w{title_cell description_cell modify_cell}
+              index.tbody.concat %w{title_cell description_cell usage_cell modify_cell}
               # add back in -- usage_cell
               index.bottom.concat %w{new_button}
             end
